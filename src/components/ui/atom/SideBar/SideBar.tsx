@@ -16,7 +16,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
     return null;
   }
   return (
-    <nav className="absolute right-0 top-20">
+    <nav className="border-l border-[#4D4635] px-2 min-h-full">
       <ul>
         {menus.map((menu: MenuNavigation, idx: number) => {
           const { id, title, ...imageProps } = menu;

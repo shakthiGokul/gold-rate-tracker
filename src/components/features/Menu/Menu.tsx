@@ -12,7 +12,7 @@ const Menu = () => {
   const { logoInfo, menus, hamBurgerInfo, iconCloseInfo } = menuServices;
   const [currentActiveTab, setCurrentActiveTab] = useState<number>(0);
   const [showSideBarStatus, setShowSideBarStatus] = useState<SideBarStatus>(
-    SideBarStatus.INITIALED
+    SideBarStatus.HIDE_SIDEBAR
   );
 
   const updateActiveTab = (activeTabIdx: number) => {
@@ -33,7 +33,7 @@ const Menu = () => {
       : iconCloseInfo;
 
   return (
-    <main className="md:w-[100%] flex flex-row px-2 py-6 justify-between">
+    <main className="md:flex-col md:justify-center md:w-64 flex flex-row px-2 py-6 justify-between ">
       <Logo {...logoInfo} />
       <div
         className="md:hidden"
