@@ -1,7 +1,8 @@
-import { FastImage, MenuNavigation } from "@/types/Navigation.types";
+import { MenuNavigation } from "@/types/Navigation.types";
+import { ImageProps } from "next/image";
 
 export class MenuPageService {
-  logoInfo: FastImage;
+  logoInfo: ImageProps;
   menus: MenuNavigation[];
 
   constructor() {

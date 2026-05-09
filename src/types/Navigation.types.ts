@@ -6,8 +6,3 @@ export type MenuNavigation = {
   width: number;
   height: number;
 };
-
-export type FastImage = {
-  src: string;
-  alt: string;
-};
