@@ -14,7 +14,6 @@ export class MenuPageService {
         alt: "Dashboard",
         width: 18,
         height: 18,
-        isActiveTab: true,
       },
       {
         id: 2,
@@ -23,7 +22,6 @@ export class MenuPageService {
         alt: "Live Rates",
         width: 20,
         height: 13,
-        isActiveTab: false,
       },
       {
         id: 3,
@@ -32,7 +30,6 @@ export class MenuPageService {
         alt: "Trends And Charts",
         width: 20,
         height: 16,
-        isActiveTab: false,
       },
       {
         id: 4,
@@ -41,7 +38,6 @@ export class MenuPageService {
         alt: "Compare",
         width: 18,
         height: 18,
-        isActiveTab: false,
       },
       {
         id: 5,
@@ -50,7 +46,6 @@ export class MenuPageService {
         alt: "Alerts",
         width: 16,
         height: 20,
-        isActiveTab: false,
       },
       {
         id: 6,
@@ -59,7 +54,6 @@ export class MenuPageService {
         alt: "Calculator",
         width: 18,
         height: 18,
-        isActiveTab: false,
       },
       {
         id: 7,
@@ -68,16 +62,14 @@ export class MenuPageService {
         alt: "News And Insights",
         width: 20,
         height: 18,
-        isActiveTab: false,
       },
       {
         id: 8,
-        src: "/assets/icons/newsAndInsights.svg",
-        title: "News & Insights",
-        alt: "News And Insights",
+        src: "/assets/icons/favourites.svg",
+        title: "Favourites",
+        alt: "Favourites",
         width: 20,
         height: 18,
-        isActiveTab: false,
       },
     ];
   }

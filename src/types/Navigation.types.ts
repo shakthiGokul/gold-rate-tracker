@@ -5,7 +5,6 @@ export type MenuNavigation = {
   alt: string;
   width: number;
   height: number;
-  isActiveTab: boolean;
 };
 
 export type FastImage = {
