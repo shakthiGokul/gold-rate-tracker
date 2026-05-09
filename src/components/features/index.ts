@@ -1,3 +1,3 @@
-import MenuPage from './Menu/Page'
+import MenuPage from "./Menu/Menu";
 
-export {MenuPage}
+export { MenuPage };
