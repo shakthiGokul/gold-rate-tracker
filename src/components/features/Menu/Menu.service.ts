@@ -4,6 +4,8 @@ import { ImageProps } from "next/image";
 export class MenuPageService {
   logoInfo: ImageProps;
   menus: MenuNavigation[];
+  hamBurgerInfo: ImageProps;
+  iconCloseInfo: ImageProps;
 
   constructor() {
     this.logoInfo = { src: "/assets/logo.svg", alt: "Gold Tracker Logo" };
@@ -73,5 +75,17 @@ export class MenuPageService {
         height: 18,
       },
     ];
+    this.hamBurgerInfo = {
+      src: "/assets/icons/hamBurger.svg",
+      alt: "hamBurger", // we have to store the unique key
+      width: 48,
+      height: 48,
+    };
+    this.iconCloseInfo = {
+      src: "/assets/icons/close.svg",
+      alt: "iconClose", // we have to store the unique key
+      width: 48,
+      height: 48,
+    };
   }
 }

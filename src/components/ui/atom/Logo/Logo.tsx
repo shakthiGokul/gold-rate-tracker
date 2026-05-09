@@ -4,11 +4,7 @@ import React, { memo } from "react";
 import FastImage from "../FastImage/FastImage";
 import { ImageProps } from "next/image";
 
-export interface LogoProps {
-  logoInfo: ImageProps;
-}
-
-const Logo: React.FC<LogoProps> = ({ logoInfo }): React.ReactNode => {
+const Logo: React.FC<ImageProps> = (logoInfo) => {
   return (
     <div className="flex justify-center items-center flex-wrap">
       <FastImage width={40} height={40} {...logoInfo} />

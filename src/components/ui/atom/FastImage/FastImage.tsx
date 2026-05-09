@@ -1,5 +1,5 @@
 import Image, { ImageProps } from "next/image";
-import { memo } from "react";
+import React, { memo } from "react";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
 const FastImage: React.FC<ImageProps> = (props) => {

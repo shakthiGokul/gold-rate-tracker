@@ -1,46 +1,52 @@
 "use client";
 
-import { MenuNavigation } from "@/types/Navigation.types";
+import { HamBurgerOrCloseIcon, Logo, SideBar } from "@/components/ui/atom";
 
-import { MenuPageService } from "./Menu.service";
 import { useState } from "react";
-import { Logo } from "@/components/ui/atom";
+import { MenuPageService } from "./Menu.service";
+import { SideBarStatus } from "./Menu.type";
+import { ImageProps } from "next/image";
 
 const Menu = () => {
   const menuServices = new MenuPageService();
-  const { logoInfo, menus } = menuServices;
+  const { logoInfo, menus, hamBurgerInfo, iconCloseInfo } = menuServices;
   const [currentActiveTab, setCurrentActiveTab] = useState<number>(0);
+  const [showSideBarStatus, setShowSideBarStatus] = useState<SideBarStatus>(
+    SideBarStatus.INITIALED
+  );
 
   const updateActiveTab = (activeTabIdx: number) => {
     setCurrentActiveTab(activeTabIdx);
   };
 
+  const updateSideBarStatus = (currentRenderInfo: ImageProps) => {
+    const currentSideBarStatus =
+      currentRenderInfo.alt === "iconClose"
+        ? SideBarStatus.HIDE_SIDEBAR
+        : SideBarStatus.SHOW_SIDEBAR;
+    setShowSideBarStatus(currentSideBarStatus);
+  };
+
+  const hamBurgerOrIconCloseInfo =
+    showSideBarStatus === SideBarStatus.HIDE_SIDEBAR
+      ? hamBurgerInfo
+      : iconCloseInfo;
+
   return (
-    <main className="flex flex-row px-6 py-6 justify-between">
-      <Logo logoInfo={logoInfo} />
-      {/* <nav className="py-6">
-        <ul>
-          {menus.map((menu: MenuNavigation, idx: number) => {
-            const { id, title, ...imageProps } = menu;
-            const isActiveTab = currentActiveTab === idx;
-            const borderStyles = isActiveTab ? "bg-[#D4AF37] rounded-lg" : "";
-            const iconFilter = isActiveTab ? "invert" : "";
-            const textColor = isActiveTab ? "text-[#241A00]" : "text-[#EAE1D4]";
-            return (
-              <div
-                key={id}
-                className={`flex items-center gap-3 py-3 px-3 cursor-pointer ${borderStyles}`}
-                onClick={() => updateActiveTab(idx)}
-              >
-                <FastImage {...imageProps} className={iconFilter} />
-                <li className={`list-none font-medium ${textColor}`}>
-                  {title}
-                </li>
-              </div>
-            );
-          })}
-        </ul>
-      </nav> */}
+    <main className="md:w-[100%] flex flex-row px-2 py-6 justify-between">
+      <Logo {...logoInfo} />
+      <div
+        className="md:hidden"
+        onClick={() => updateSideBarStatus(hamBurgerOrIconCloseInfo)}
+      >
+        <HamBurgerOrCloseIcon {...hamBurgerOrIconCloseInfo} />
+      </div>
+      <SideBar
+        menus={menus}
+        currentActiveTab={currentActiveTab}
+        updateActiveTab={updateActiveTab}
+        showSideBarStatus={showSideBarStatus}
+      />
     </main>
   );
 };
