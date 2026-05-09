@@ -1,11 +1,7 @@
 import { MenuPage } from "@/components/features";
 
 const HomePage = () => {
-  return (
-    <main>
-      <MenuPage />
-    </main>
-  );
+  return <MenuPage />;
 };
 
 export default HomePage;

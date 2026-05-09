@@ -1,6 +1,14 @@
-export type MenuNavigationTypes = {
+export type MenuNavigation = {
   id: number;
-  url: string;
+  src: string;
   title: string;
+  alt: string;
+  width: number;
+  height: number;
+  isActiveTab: boolean;
+};
+
+export type FastImage = {
+  src: string;
   alt: string;
 };
