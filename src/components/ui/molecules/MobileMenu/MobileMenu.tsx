@@ -25,7 +25,7 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
   const { logoInfo, menus, hamBurgerInfo, iconCloseInfo, currentPathName } =
     props;
 
-  const [prevPath, setPrevPath] = useState(currentPathName);
+  const [prevPath, setPrevPath] = useState("");
   const [showSideBarStatus, setShowSideBarStatus] = useState<SideBarStatus>(
     SideBarStatus.HIDE_SIDEBAR
   );
