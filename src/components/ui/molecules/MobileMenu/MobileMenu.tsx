@@ -1,3 +1,5 @@
+"use client";
+
 import { memo, useState } from "react";
 import { ImageProps } from "next/image";
 import dynamic from "next/dynamic";
@@ -8,9 +10,7 @@ import { MenuNavigation } from "@/types/Navigation.types";
 const HamBurgerOrCloseIcon = dynamic(
   () => import("../../atom/HamBurgerOrCloseIcon/HamBurgerOrCloseIcon")
 );
-
 const Logo = dynamic(() => import("../../atom/Logo/Logo"));
-
 const SideBar = dynamic(() => import("../../atom/SideBar/SideBar"));
 
 interface MobileMenuProps {
@@ -18,14 +18,22 @@ interface MobileMenuProps {
   menus: MenuNavigation[];
   hamBurgerInfo: ImageProps;
   iconCloseInfo: ImageProps;
+  currentPathName: string;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = (props) => {
-  const { logoInfo, menus, hamBurgerInfo, iconCloseInfo } = props;
+  const { logoInfo, menus, hamBurgerInfo, iconCloseInfo, currentPathName } =
+    props;
 
+  const [prevPath, setPrevPath] = useState(currentPathName);
   const [showSideBarStatus, setShowSideBarStatus] = useState<SideBarStatus>(
     SideBarStatus.HIDE_SIDEBAR
   );
+
+  if (prevPath !== currentPathName) {
+    setPrevPath(currentPathName);
+    setShowSideBarStatus(SideBarStatus.HIDE_SIDEBAR);
+  }
 
   const isSideBarOpen = showSideBarStatus === SideBarStatus.SHOW_SIDEBAR;
   const hamBurgerOrIconCloseInfo = isSideBarOpen
@@ -42,7 +50,6 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
 
   return (
     <>
-      {/* Mobile header */}
       <header className="md:hidden flex flex-row justify-between items-center py-4 px-4 border-b border-[#4D4635]">
         <Logo {...logoInfo} />
         <div onClick={() => updateSideBarStatus(hamBurgerOrIconCloseInfo)}>
@@ -50,7 +57,6 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
         </div>
       </header>
 
-      {/* Mobile full-screen overlay */}
       {isSideBarOpen && (
         <div className="md:hidden fixed inset-0 z-50 bg-[#0a0a0a] flex flex-col">
           <div className="flex flex-row justify-between items-center py-4 px-4 border-b border-[#4D4635]">
@@ -62,6 +68,7 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
           <SideBar
             menus={menus}
             showSideBarStatus={SideBarStatus.SHOW_SIDEBAR}
+            currentPathName={currentPathName}
           />
         </div>
       )}

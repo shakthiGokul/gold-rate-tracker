@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { MenuNavigation } from "@/types/Navigation.types";
 import FastImage from "../FastImage/FastImage";
@@ -11,11 +10,11 @@ import { showSideBarOnMobileBrowser } from "./SideBar.helper";
 interface SideBarProps {
   menus: MenuNavigation[];
   showSideBarStatus: SideBarStatus;
+  currentPathName: string;
 }
 
 const SideBar: React.FC<SideBarProps> = (props) => {
-  const { menus, showSideBarStatus } = props;
-  const pathname = usePathname();
+  const { menus, showSideBarStatus, currentPathName } = props;
 
   if (showSideBarOnMobileBrowser(showSideBarStatus)) {
     return null;
@@ -26,7 +25,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
       <ul>
         {menus.map((menu: MenuNavigation) => {
           const { id, title, href, ...imageProps } = menu;
-          const isActiveTab = pathname === href;
+          const isActiveTab = currentPathName === href;
           const borderStyles = isActiveTab ? "bg-[#D4AF37] rounded-lg" : "";
           const iconFilter = isActiveTab ? "invert" : "";
           const textColor = isActiveTab ? "text-[#241A00]" : "text-[#EAE1D4]";
