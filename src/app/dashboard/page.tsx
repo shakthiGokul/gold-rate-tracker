@@ -1,8 +1,7 @@
-import { MenuPage } from "@/components/features";
 import { memo } from "react";
 
 const DashBoard = () => {
-  return <MenuPage />;
+  return <main className="flex-1 p-6"></main>;
 };
 
 export default memo(DashBoard);

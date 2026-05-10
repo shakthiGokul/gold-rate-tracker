@@ -1,3 +1,5 @@
+"use client";
+
 import { ImageProps } from "next/image";
 
 import FastImage from "../FastImage/FastImage";

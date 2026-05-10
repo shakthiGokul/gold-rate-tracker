@@ -17,7 +17,7 @@ export class MenuPageService {
         alt: "Dashboard",
         width: 18,
         height: 18,
-        href: "dashboard",
+        href: "/dashboard",
       },
       {
         id: 2,
@@ -26,7 +26,7 @@ export class MenuPageService {
         alt: "Live Rates",
         width: 20,
         height: 13,
-        href: "live-rates",
+        href: "/live-rates",
       },
       {
         id: 3,
@@ -35,7 +35,7 @@ export class MenuPageService {
         alt: "Trends And Charts",
         width: 20,
         height: 16,
-        href: "trends-charts",
+        href: "/trends-charts",
       },
       {
         id: 4,
@@ -44,7 +44,7 @@ export class MenuPageService {
         alt: "Compare",
         width: 18,
         height: 18,
-        href: "compare",
+        href: "/compare",
       },
       {
         id: 5,
@@ -53,7 +53,7 @@ export class MenuPageService {
         alt: "Alerts",
         width: 16,
         height: 20,
-        href: "alerts",
+        href: "/alerts",
       },
       {
         id: 6,
@@ -62,7 +62,7 @@ export class MenuPageService {
         alt: "Calculator",
         width: 18,
         height: 18,
-        href: "calculator",
+        href: "/calculator",
       },
       {
         id: 7,
@@ -71,7 +71,7 @@ export class MenuPageService {
         alt: "News And Insights",
         width: 20,
         height: 18,
-        href: "news-insights",
+        href: "/news-insights",
       },
       {
         id: 8,
@@ -80,7 +80,7 @@ export class MenuPageService {
         alt: "Favourites",
         width: 20,
         height: 18,
-        href: "favourites",
+        href: "/favourites",
       },
     ];
     this.hamBurgerInfo = {

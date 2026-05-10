@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Menu from "@/components/features/Menu/Menu";
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
@@ -24,7 +25,10 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="h-full flex flex-col">{children}</body>
+      <body className="h-full flex flex-col md:flex-row">
+        <Menu />
+        {children}
+      </body>
     </html>
   );
 }
