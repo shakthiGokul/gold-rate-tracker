@@ -1,9 +1,17 @@
 import { memo, useState } from "react";
 import { ImageProps } from "next/image";
+import dynamic from "next/dynamic";
 
-import { HamBurgerOrCloseIcon, Logo, SideBar } from "../../atom";
 import { SideBarStatus } from "@/components/features/Menu/Menu.type";
 import { MenuNavigation } from "@/types/Navigation.types";
+
+const HamBurgerOrCloseIcon = dynamic(
+  () => import("../../atom/HamBurgerOrCloseIcon/HamBurgerOrCloseIcon")
+);
+
+const Logo = dynamic(() => import("../../atom/Logo/Logo"));
+
+const SideBar = dynamic(() => import("../../atom/SideBar/SideBar"));
 
 interface MobileMenuProps {
   logoInfo: ImageProps;

@@ -1,9 +1,8 @@
+import { MenuPage } from "@/components/features";
+import { memo } from "react";
+
 const DashBoard = () => {
-  return (
-    <div>
-      <p>Dashboard</p>
-    </div>
-  );
+  return <MenuPage />;
 };
 
-export default DashBoard;
+export default memo(DashBoard);

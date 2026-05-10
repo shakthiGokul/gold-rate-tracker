@@ -2,6 +2,7 @@ import { MenuNavigation } from "@/types/Navigation.types";
 import FastImage from "../FastImage/FastImage";
 import { SideBarStatus } from "@/components/features/Menu/Menu.type";
 import { showSideBarOnMobileBrowser } from "./SideBar.helper";
+import Link from "next/link";
 
 interface SideBarProps {
   menus: MenuNavigation[];
@@ -19,7 +20,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
     <nav className="py-6">
       <ul>
         {menus.map((menu: MenuNavigation, idx: number) => {
-          const { id, title, ...imageProps } = menu;
+          const { id, title, href, ...imageProps } = menu;
           const isActiveTab = currentActiveTab === idx;
           const borderStyles = isActiveTab ? "bg-[#D4AF37] rounded-lg" : "";
           const iconFilter = isActiveTab ? "invert" : "";
@@ -34,7 +35,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               <li
                 className={`list-none font-medium whitespace-nowrap ${textColor}`}
               >
-                {title}
+                <Link href={href}>{title}</Link>
               </li>
             </div>
           );

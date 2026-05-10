@@ -5,4 +5,5 @@ export type MenuNavigation = {
   alt: string;
   width: number;
   height: number;
+  href: string;
 };

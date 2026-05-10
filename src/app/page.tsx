@@ -1,7 +1,7 @@
-import { MenuPage } from "@/components/features";
+import { redirect } from "next/navigation";
 
 const HomePage = () => {
-  return <MenuPage />;
+  return redirect("/dashboard");
 };
 
 export default HomePage;
