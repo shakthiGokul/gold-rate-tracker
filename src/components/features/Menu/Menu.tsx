@@ -9,11 +9,6 @@ import MobileMenu from "@/components/ui/molecules/MobileMenu/MobileMenu";
 const Menu = () => {
   const menuServices = new MenuPageService();
   const { logoInfo, menus, hamBurgerInfo, iconCloseInfo } = menuServices;
-  const [currentActiveTab, setCurrentActiveTab] = useState<number>(0);
-
-  const updateActiveTab = (activeTabIdx: number) => {
-    setCurrentActiveTab(activeTabIdx);
-  };
 
   return (
     <>
@@ -22,15 +17,8 @@ const Menu = () => {
         menus={menus}
         hamBurgerInfo={hamBurgerInfo}
         iconCloseInfo={iconCloseInfo}
-        currentActiveTab={currentActiveTab}
-        updateActiveTab={updateActiveTab}
       />
-      <DesktopMenu
-        menus={menus}
-        currentActiveTab={currentActiveTab}
-        updateActiveTab={updateActiveTab}
-        logoInfo={logoInfo}
-      />
+      <DesktopMenu menus={menus} logoInfo={logoInfo} />
     </>
   );
 };

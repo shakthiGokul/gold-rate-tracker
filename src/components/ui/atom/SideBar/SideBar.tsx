@@ -10,8 +10,6 @@ import { showSideBarOnMobileBrowser } from "./SideBar.helper";
 
 interface SideBarProps {
   menus: MenuNavigation[];
-  updateActiveTab: (idx: number) => void;
-  currentActiveTab: number;
   showSideBarStatus: SideBarStatus;
 }
 

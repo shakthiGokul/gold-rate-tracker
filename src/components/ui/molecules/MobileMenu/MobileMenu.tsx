@@ -18,19 +18,10 @@ interface MobileMenuProps {
   menus: MenuNavigation[];
   hamBurgerInfo: ImageProps;
   iconCloseInfo: ImageProps;
-  currentActiveTab: number;
-  updateActiveTab: (idx: number) => void;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = (props) => {
-  const {
-    logoInfo,
-    menus,
-    hamBurgerInfo,
-    iconCloseInfo,
-    currentActiveTab,
-    updateActiveTab,
-  } = props;
+  const { logoInfo, menus, hamBurgerInfo, iconCloseInfo } = props;
 
   const [showSideBarStatus, setShowSideBarStatus] = useState<SideBarStatus>(
     SideBarStatus.HIDE_SIDEBAR
@@ -70,8 +61,6 @@ const MobileMenu: React.FC<MobileMenuProps> = (props) => {
           </div>
           <SideBar
             menus={menus}
-            currentActiveTab={currentActiveTab}
-            updateActiveTab={updateActiveTab}
             showSideBarStatus={SideBarStatus.SHOW_SIDEBAR}
           />
         </div>
