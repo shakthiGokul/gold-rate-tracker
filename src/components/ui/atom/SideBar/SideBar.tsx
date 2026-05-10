@@ -16,7 +16,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
     return null;
   }
   return (
-    <nav className="border-l border-[#4D4635] px-2 min-h-full">
+    <nav className="py-6">
       <ul>
         {menus.map((menu: MenuNavigation, idx: number) => {
           const { id, title, ...imageProps } = menu;
@@ -27,11 +27,15 @@ const SideBar: React.FC<SideBarProps> = (props) => {
           return (
             <div
               key={id}
-              className={`flex px-3 py-3 gap-4 cursor-pointer ${borderStyles}`}
+              className={`flex items-center px-3 py-3 gap-3 cursor-pointer ${borderStyles}`}
               onClick={() => updateActiveTab(idx)}
             >
               <FastImage {...imageProps} className={iconFilter} />
-              <li className={`list-none font-medium ${textColor}`}>{title}</li>
+              <li
+                className={`list-none font-medium whitespace-nowrap ${textColor}`}
+              >
+                {title}
+              </li>
             </div>
           );
         })}

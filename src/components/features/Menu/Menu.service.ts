@@ -80,12 +80,14 @@ export class MenuPageService {
       alt: "hamBurger", // we have to store the unique key
       width: 48,
       height: 48,
+      id: "hamburger-1",
     };
     this.iconCloseInfo = {
       src: "/assets/icons/close.svg",
       alt: "iconClose", // we have to store the unique key
       width: 48,
       height: 48,
+      id: "iconClose-1",
     };
   }
 }
